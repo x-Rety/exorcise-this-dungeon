@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _hp = 1;
     public bool IsDead { get; private set; } = false;
@@ -34,13 +34,4 @@ public class Health : MonoBehaviour
 
         Debug.Log("death");
     }
-
-    /*
-        -здоровье
-        -к нему можно обращаться | оно может изменяться
-        -способ получения урона
-        -обработка смерти
-
-        -состояние смерти
-    */
 }
