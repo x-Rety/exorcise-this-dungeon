@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _hp = 1;
+
     public bool IsDead { get; private set; } = false;
 
     public int HP
@@ -20,6 +22,8 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
+    public event Action OnDeath;
+
     public void TakeDamage(int damage)
     {
         if (IsDead) return;
@@ -31,6 +35,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         if (IsDead) return;
         IsDead = true;
+        OnDeath?.Invoke();
 
         Debug.Log("death");
     }
