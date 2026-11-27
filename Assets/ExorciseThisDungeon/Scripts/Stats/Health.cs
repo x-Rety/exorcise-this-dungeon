@@ -24,11 +24,11 @@ public class Health : MonoBehaviour, IDamageable
 
     public event Action OnDeath;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int amount)
     {
         if (IsDead) return;
 
-        HP -= damage;
+        HP -= amount;
     }
 
     private void Die()
